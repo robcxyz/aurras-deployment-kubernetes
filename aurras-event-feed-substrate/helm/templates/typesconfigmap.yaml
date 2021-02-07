@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: typesconfig
+data:
+  types.json: |-
+{{ .Files.Get "config/types.json" | indent 4}}

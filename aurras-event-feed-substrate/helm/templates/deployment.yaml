@@ -54,6 +54,20 @@ spec:
             {{- end }}    
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            {{- range $k, $v := .Values.env }}
+            {{- range $kk, $vv := $v }}
+            {{- if eq $kk "TYPES_FILE" }}
+            - name: config
+              mountPath: {{ $vv | trimSuffix "/types.json" }}
+            {{- end }}
+            {{- end }}
+            {{- end }} 
+              
+      volumes:
+        - name: config
+          configMap:
+            name: typesconfig      
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
