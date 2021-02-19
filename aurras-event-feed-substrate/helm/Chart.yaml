@@ -4,4 +4,4 @@ description: A Helm chart for aurras-event-feed-substrate
 kind: Service
 type: application
 version: 0.1.0
-appVersion: "0.1.0"
+appVersion: "0.1.1"
