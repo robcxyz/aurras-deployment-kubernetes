@@ -119,12 +119,13 @@ env:
   - LOGGERS: console,info;file,error,/logs/event-feed.log
   - EXCLUDES: system
   - TYPES_FILE: /configs/types.json #name of the types file should be types.json
-  - KAFKA_BROKERS: kafka.docker:9092
-  - KAFKA_TOPIC: node-template-topic
+  - KAFKA_BROKERS: <INTERNAL-IP>:9092
   - OPENWHISK_API_KEY: 23bc46b1-71f6-4ed5-8c54-816aa4f8c502:123zO3xZCLrMN6v2BKK1dXYFpXlPkccOFqm12CdAsMgRU4VrNZ9lyGVCGuMDGIwP
   - OPENWHISK_API_HOST: https://<INTERNAL-IP>:31001
   - OPENWHISK_NAMESPACE: guest
   - EVENT_RECEIVER: event-receiver
+  - TOPICS=balances=<Generated>
+  - EVENT_PROCESSOR=substrate-event-processor
 ```
 
 4. Add custom type if any for the chain to `helm/config/types.json`
