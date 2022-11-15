@@ -1,0 +1,3 @@
+
+helm update --namespace aurras
+

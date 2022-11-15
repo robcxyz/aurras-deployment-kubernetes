@@ -1,0 +1,20 @@
+
+name: Run on minikube
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Run on minikube
+        run: |
+          bash scripts/run-minikube.sh
